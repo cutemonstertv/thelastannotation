@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Last Annotation — Eliza Reed</title>
+  <meta name="description" content="She looks up from a book she has been reading for three years. A man is standing on the other side of her kitchen table. He was not there a moment ago. She does not scream." />
+  <meta property="og:title" content="The Last Annotation — Eliza Reed" />
+  <meta property="og:description" content="He wrote in the margins in 1818. She wrote back. This afternoon he is standing in her kitchen." />
+  <meta property="og:image" content="covers/TheLastAnnotationBookCover.jpeg" />
+  <meta name="theme-color" content="#0b0908" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #f3e6d0;
+      --ink-dim: #c9b89a;
+      --paper: #1a1410;
+      --void: #0b0908;
+      --blue: #3d6cc9;
+      --gold: #d7c4a0;
+      --smoke: #6a6358;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--void);
+      color: var(--ink);
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      line-height: 1.55;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    .wrap { width: min(1080px, calc(100% - 2rem)); margin: 0 auto; }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 2.5rem 0 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(ellipse at 50% 20%, rgba(215,196,160,.12), transparent 55%),
+        radial-gradient(ellipse at 50% 80%, rgba(61,108,201,.08), transparent 50%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative;
+      display: grid;
+      gap: 2.4rem;
+      align-items: center;
+    }
+    @media (min-width: 860px) {
+      .hero-grid { grid-template-columns: .9fr 1.1fr; gap: 3.2rem; }
+    }
+    .cover-wrap {
+      justify-self: center;
+      width: min(340px, 78vw);
+      filter: drop-shadow(0 30px 50px rgba(0,0,0,.65));
+    }
+    .cover-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2px;
+    }
+    .eyebrow {
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      color: var(--gold);
+      margin-bottom: .8rem;
+    }
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(2.4rem, 7vw, 4.6rem);
+      line-height: .95;
+      letter-spacing: .04em;
+    }
+    .lede {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+      color: var(--ink-dim);
+      margin: 1.1rem 0 1.6rem;
+      max-width: 28ch;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: .7rem; }
+    .btn {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--void);
+      background: var(--gold);
+      padding: .75rem 1.15rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    .btn.ghost {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    section { padding: 4.2rem 0; }
+    h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 600;
+      margin-bottom: 1.4rem;
+    }
+    .rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--smoke), transparent);
+      border: 0;
+      margin: 0 auto 2.4rem;
+      width: min(640px, 90%);
+    }
+
+    .bombs {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 720px) { .bombs { grid-template-columns: 1fr 1fr; } }
+    .bomb {
+      border: 1px solid rgba(215,196,160,.18);
+      background: #120e0c;
+      padding: 1.35rem 1.3rem 1.2rem;
+      min-height: 100%;
+    }
+    .bomb .tag {
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: .7rem;
+    }
+    .bomb blockquote {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.28rem;
+      line-height: 1.35;
+      font-style: italic;
+    }
+    .bomb.span { grid-column: 1 / -1; }
+    .bomb.span blockquote { font-size: clamp(1.4rem, 3vw, 1.85rem); }
+
+    .excerpt {
+      max-width: 38rem;
+      margin: 0 auto;
+    }
+    .excerpt .ch {
+      text-align: center;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      font-size: .7rem;
+      color: var(--gold);
+      margin-bottom: .35rem;
+    }
+    .excerpt h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+    .excerpt p {
+      margin: 0 0 .95rem;
+      color: #eee4d2;
+      font-size: 1.05rem;
+    }
+    .excerpt p.indent { text-indent: 1.2em; }
+    .excerpt em { font-style: italic; color: var(--gold); }
+    .fade {
+      mask-image: linear-gradient(#000 70%, transparent);
+      -webkit-mask-image: linear-gradient(#000 70%, transparent);
+    }
+
+    .meta {
+      display: grid;
+      gap: 1.4rem;
+    }
+    @media (min-width: 720px) { .meta { grid-template-columns: 1fr 1fr 1fr; } }
+    .meta article {
+      border-top: 1px solid rgba(215,196,160,.25);
+      padding-top: 1rem;
+    }
+    .meta h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem;
+      margin-bottom: .4rem;
+    }
+    .meta p { color: var(--ink-dim); font-size: .95rem; }
+
+    footer {
+      padding: 2.5rem 0 3rem;
+      text-align: center;
+      color: var(--smoke);
+      font-size: .85rem;
+    }
+    .share {
+      display: flex;
+      justify-content: center;
+      gap: .6rem;
+      flex-wrap: wrap;
+      margin-top: 1.4rem;
+    }
+    .share button {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid rgba(215,196,160,.35);
+      padding: .55rem .8rem;
+      font: inherit;
+      font-size: .75rem;
+      letter-spacing: .06em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div class="cover-wrap">
+        <img src="covers/TheLastAnnotationBookCover.jpeg" alt="Cover of The Last Annotation by Eliza Reed: a woman annotating an old book beneath a cracked clock." width="340" height="544" />
+      </div>
+      <div>
+        <p class="eyebrow">A novel by Eliza Reed</p>
+        <h1>THE LAST<br />ANNOTATION</h1>
+        <p class="lede">He wrote in the margins in 1818. She wrote back. This afternoon he is standing in her kitchen.</p>
+        <div class="cta-row">
+          <a class="btn" href="#buy">Get the book</a>
+          <a class="btn ghost" href="#first-page">Read the first page</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <hr class="rule" />
+
+  <section class="wrap">
+    <h2>Lines that will not sit still</h2>
+    <div class="bombs">
+      <article class="bomb span">
+        <p class="tag">Stoke Newington · Tuesday</p>
+        <blockquote>There is a man on the other side of the kitchen table. He was not there a moment ago. He is there now. I do not scream.</blockquote>
+      </article>
+      <article class="bomb">
+        <p class="tag">The sentence she underlined twice</p>
+        <blockquote>Grief is not the absence of the person. It is the presence of the space they occupied, which refuses to close.</blockquote>
+      </article>
+      <article class="bomb">
+        <p class="tag">The sentence she wrote back</p>
+        <blockquote>And what if the space starts answering back?</blockquote>
+      </article>
+      <article class="bomb span">
+        <p class="tag">A detail about the radiators</p>
+        <blockquote>I cannot remember the last time I was cold. This is not a complaint. The heating in this building is the one reliable thing about it. I dress for weather I never quite feel.</blockquote>
+      </article>
+      <article class="bomb">
+        <p class="tag">He</p>
+        <blockquote>You can see me.</blockquote>
+      </article>
+      <article class="bomb">
+        <p class="tag">She</p>
+        <blockquote>You’re standing in front of the fridge. It’s not a large kitchen.</blockquote>
+      </article>
+      <article class="bomb">
+        <p class="tag">1818</p>
+        <blockquote>You’re the one who wrote back.</blockquote>
+      </article>
+      <article class="bomb">
+        <p class="tag">Now</p>
+        <blockquote>I thought you were dead.</blockquote>
+      </article>
+      <article class="bomb span">
+        <p class="tag">A friend at the table</p>
+        <blockquote>Femi is always so warm. He makes the rest of the flat feel cold.</blockquote>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" id="first-page">
+    <div class="excerpt fade">
+      <p class="ch">Chapter One</p>
+      <h3>The Annotator</h3>
+      <p>The kettle clicks off and I don't get up.</p>
+      <p class="indent">This is not unusual. The kettle clicks off six, seven times a day in this flat and I have developed a relationship with it that is closer to negotiation than use. I will go to it. I will. After this paragraph. After this sentence in the margin that I have been turning over since breakfast, trying to decide whether the man who wrote it meant <em>cannot</em> as in physically unable or <em>cannot</em> as in will not permit himself. There is a difference. There is always a difference, and I have spent three years in the difference.</p>
+      <p class="indent">The book is open on the kitchen table at page two hundred and fourteen. The spine has given up pretending it is a spine. The pages are the colour of weak tea. Someone — him — has written in the left margin in a hand so small it looks like it was trying not to be caught:</p>
+      <p><em>Grief is not the absence of the person. It is the presence of the space they occupied, which refuses to close.</em></p>
+      <p class="indent">I have underlined it twice. Once in pencil, the first year. Once in black ink, last winter, when I understood he was right and hated him a little for it.</p>
+      <p class="indent">Outside, Stoke Newington is doing its Tuesday. A bus sighs at the lights on Church Street. Someone in the flat below is practising scales on a keyboard that has one note slightly flat, always the same note, which I have come to think of as a kind of neighbour. Rain is considering the windows and deciding against them. The radiator under the sink ticks once, companionably, like a dog shifting in its sleep.</p>
+      <p>I cannot remember the last time I was cold.</p>
+      <p class="indent">This is not a complaint. The heating in this building is the one reliable thing about it — older than the laminate, older than the intercom that no one uses, older, I sometimes think, than the idea of comfort itself. The pipes knock in a language I have learned not to translate. I dress for weather I never quite feel.</p>
+      <p class="indent">I write in the margin, under his line, in the small cramped hand I have developed from answering him:</p>
+      <p><em>And what if the space starts answering back?</em></p>
+      <p class="indent">The pen is a cheap one. Blue. I cap it. I look up.</p>
+      <p>There is a man on the other side of the kitchen table.</p>
+    </div>
+    <p style="text-align:center;margin-top:1.4rem">
+      <a class="btn" href="#buy">Continue in the book</a>
+    </p>
+  </section>
+
+  <section class="wrap">
+    <h2>What you are walking into</h2>
+    <div class="meta">
+      <article>
+        <h3>A kitchen in Stoke Newington</h3>
+        <p>Vera Solano annotates the same battered novel the way other people pray. Dual first person. Her now. His then.</p>
+      </article>
+      <article>
+        <h3>A man from 1794</h3>
+        <p>Caelum Voss has been bound to this patch of London for two hundred and thirty years. He cannot leave. He has never, until this afternoon, been spoken to.</p>
+      </article>
+      <article>
+        <h3>A book that answers</h3>
+        <p>Literary ghost romance. Forced proximity. Annotation as courtship. A first love that is allowed to remain on the page. No dragons. No costume haunting.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" id="buy" style="text-align:center;padding-bottom:5rem">
+    <h2>The rest of the sentence is in the book</h2>
+    <p style="color:var(--ink-dim);max-width:34rem;margin:.2rem auto 1.4rem;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:1.25rem">
+      Some doors only open once. Some notes are written to be found. Some people are the margin the text was missing.
+    </p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn" href="https://www.amazon.com/s?k=The+Last+Annotation+Eliza+Reed">Amazon</a>
+      <a class="btn ghost" href="https://www.amazon.co.uk/s?k=The+Last+Annotation+Eliza+Reed">Amazon UK</a>
+    </div>
+    <p style="margin-top:1rem;color:var(--smoke);font-size:.85rem">Replace these search links with your ASIN the hour the listing goes live.</p>
+  </section>
+
+  <footer>
+    <p>The Last Annotation · Eliza Reed · 2026 - Published by Nova Stella Press - www.novastellapress.com</p>
+    <div class="share">
+      <button type="button" data-copy="She looks up from a book she has been reading for three years. A man is standing on the other side of her kitchen table. He was not there a moment ago. She does not scream.">Copy the hook</button>
+      <button type="button" data-copy="I cannot remember the last time I was cold. This is not a complaint. The heating in this building is the one reliable thing about it. I dress for weather I never quite feel.">Copy the radiator</button>
+      <button type="button" data-copy="You're the one who wrote back. / I thought you were dead.">Copy the last lines of chapter one</button>
+    </div>
+  </footer>
+  <script>
+    document.querySelectorAll("[data-copy]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        navigator.clipboard.writeText(btn.getAttribute("data-copy")).then(function () {
+          var old = btn.textContent;
+          btn.textContent = "Copied";
+          setTimeout(function () { btn.textContent = old; }, 1400);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
